@@ -1,0 +1,20 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.post-card {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
