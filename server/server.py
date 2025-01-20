@@ -2,6 +2,8 @@ from flask import Flask, request
 from flask_restx import Api, Resource, fields, Namespace
 from flask_cors import CORS  # ייבוא flask_cors
 
+from suicide import analyze_text
+
 app = Flask(__name__)
 CORS(app)  # הפעלת CORS לכל הבקשות
 
@@ -27,12 +29,10 @@ class calculate_suicide_text(Resource):
             return {"error": "Missing 'text' in request body"}, 400
 
         # שליפת הטקסט
-        text = data['text']
+        text = data['message']
 
         # קריאה לפונקציה שמחשבת את אחוזי האובדנות
-        # לשנות לפונקציה של ציבי ותמר
-        # suicide_rate = calculateSuicideRate(text);
-        suicide_rate = 85
+        suicide_rate = analyze_text(text);
 
         # החזרת התוצאה
         return {"original": text, "suicide_rate": suicide_rate}, 200

@@ -28,7 +28,7 @@ function App() {
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="הקלד את ההודעה שלך..."
+          placeholder="enter yout text here..."
           className="input-text"
         />
         <button onClick={handlePost} className="post-button">POST</button>
@@ -39,7 +39,7 @@ function App() {
           <div key={index} className="message-card">
             <h4>{msg.user} ({msg.location})</h4>
             <p>{msg.content}</p>
-            <p className="warning">{ `התראה! פוסט אובדני (${percentage}%)`} .</p>
+            <p className="warning">{ `notification!! suicidal post (${percentage}%)`} .</p>
             <button className="action-button">הפעל חקירה</button>
           </div>
         ))}
