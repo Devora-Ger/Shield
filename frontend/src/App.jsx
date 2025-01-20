@@ -5,13 +5,13 @@ import './App.css';
 function App() {
   const [text, setText] = useState('');
   const [messages, setMessages] = useState([]);
+  const [percentage,setPercentage]=useState(0);
 
-
-  const handlePost = () => {
-    let precentage = containsWordsIgnoreCase(text);
-    console.log(precentage);
+  const handlePost = async() => {
+    let percentage =await  containsWordsIgnoreCase(text);
+    setPercentage(percentage);
     
-    if (precentage >= 0.5) {
+    if (percentage >= 80) {
       const newMessage = {
         user: 'USER_NAME',
         location: 'USER_LOCATION',
@@ -39,7 +39,7 @@ function App() {
           <div key={index} className="message-card">
             <h4>{msg.user} ({msg.location})</h4>
             <p>{msg.content}</p>
-            <p className="warning">התראה! פוסט אובדני .</p>
+            <p className="warning">{ `התראה! פוסט אובדני (${percentage}%)`} .</p>
             <button className="action-button">הפעל חקירה</button>
           </div>
         ))}
